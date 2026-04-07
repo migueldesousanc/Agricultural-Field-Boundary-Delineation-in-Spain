@@ -2,6 +2,9 @@
 
 This project focuses on mapping agricultural boundaries across Spain. Since many fields are tightly packed, we use instance segmentation rather than semantic segmentation to accurately distinguish between adjacent plots. 
 
+<img width="900" height="588" alt="Captura de ecrã 2026-04-07 103659" src="https://github.com/user-attachments/assets/1da517f1-73c8-490e-886b-35a209202b0b" />
+<img width="917" height="582" alt="Captura de ecrã 2026-04-07 103910" src="https://github.com/user-attachments/assets/3afd8af7-c870-4c80-bfd7-7ddc133c2be8" />
+
 Building upon that foundation, this repository contains a Python-based GeoAI pipeline designed to analyze multispectral satellite imagery (4-channel TIFFs) for precision agriculture. It calculates key agronomic indices and features an automated hotspot detection system that highlights critical field zones.
 
 ## Key Features
@@ -12,7 +15,8 @@ Unlike standard instance segmentation models that map general field boundaries, 
 The following block calculates the **NDVI (Normalized Difference Vegetation Index)** for our test parcel. This index uses the Near-Infrared (NIR) and Red bands to assess biomass vigor and density. The results generate a heatmap where higher values indicate healthy vegetation.
 
 ### 2. Moisture & Water Detection (NDWI)
-Next, we extract the **NDWI (Normalized Difference Water Index)** by cross-referencing the Green band with the NIR band. The goal of this step is to evaluate water stress and map the presence of surface water on the parcel. The areas highlighted in blue represent locations with the highest moisture index.
+Next, we extract the **NDWI (Normalized Difference Water Index)** by cross-referencing the <img width="923" height="598" alt="Captura de ecrã 2026-04-07 103953" src="https://github.com/user-attachments/assets/9c0132fc-8f5c-42f4-a174-ee7dbfb7fbc1" />
+Green band with the NIR band. The goal of this step is to evaluate water stress and map the presence of surface water on the parcel. The areas highlighted in blue represent locations with the highest moisture index.
 
 ### 3. Chlorophyll & Nutrition (GCI)
 In this step, we focus on crop nutrition through the **GCI (Green Chlorophyll Index)**. This index is directly correlated with the amount of chlorophyll in the leaves, allowing us to estimate nitrogen levels. Areas with higher values reflect plants in a strong vegetative growth phase.
@@ -23,6 +27,9 @@ To facilitate decision-making, the code compiles the results into an **integrate
 ### 5. Automated Hotspot Bounding Boxes
 Finally, we introduce a layer of spatial automation. The algorithm analyzes each generated map, isolates the **top 5% of highest values** (greatest vigor, most water, and most chlorophyll), and automatically draws **red bounding boxes** around these critical zones to alert the end user.
 
+<img width="923" height="598" alt="Captura de ecrã 2026-04-07 103953" src="https://github.com/user-attachments/assets/87b06b90-e36d-4009-8be2-9ba8b20a907a" />
+
+<img width="922" height="271" alt="Captura de ecrã 2026-04-07 104000" src="https://github.com/user-attachments/assets/7d198a11-2663-44e4-a3e8-0b1003a38da4" />
 ---
 
 ## Installation & Setup
