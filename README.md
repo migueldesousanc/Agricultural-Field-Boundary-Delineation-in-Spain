@@ -28,7 +28,20 @@ Finally, we introduce a layer of spatial automation. The algorithm analyzes each
 ## Installation & Setup
 
 ### Prerequisites
-You will need Python installed along with the following geospatial and scientific libraries:
+You will need Python installed along with the following geospatial and scientific libraries
 
-```bash
-pip install rasterio numpy matplotlib scipy
+### Data Requirements
+**⚠️ Note on Dataset:** Due to GitHub's file size limits, the raw `.tif` satellite images are NOT included in this repository. 
+
+To run this code locally:
+1. Create a folder named `data/test_dir/` in the root directory.
+2. Place your 4-channel (Red, Green, Blue, NIR) `.tif` satellite or drone imagery inside this folder.
+3. The script will automatically fetch the first image in the directory and process it.
+
+## Usage
+Simply open the Jupyter Notebook (`.ipynb`) or run the Python script (`.py`). The script will read the raw satellite data, perform the matrix calculations, and output a matplotlib dashboard with the RGB true-color image and the three index maps highlighting the highest value zones.
+
+---
+
+## Acknowledgments
+This work was inspired by the work of Professor Qiusheng Wu, available on his GitHub page: [https://github.com/giswqs](https://github.com/giswqs)
