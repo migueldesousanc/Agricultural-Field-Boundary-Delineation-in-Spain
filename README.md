@@ -1,0 +1,34 @@
+# GeoAI Agriculture Analytics & Hotspot Detection
+
+This project focuses on mapping agricultural boundaries across Spain. Since many fields are tightly packed, we use instance segmentation rather than semantic segmentation to accurately distinguish between adjacent plots. 
+
+Building upon that foundation, this repository contains a Python-based GeoAI pipeline designed to analyze multispectral satellite imagery (4-channel TIFFs) for precision agriculture. It calculates key agronomic indices and features an automated hotspot detection system that highlights critical field zones.
+
+## Key Features
+
+Unlike standard instance segmentation models that map general field boundaries, this script dynamically isolates the top 5% highest values for each index and groups neighboring pixels into clusters. It automatically draws red bounding boxes around these specific "hotspots," allowing users to instantly pinpoint areas with the highest vegetative vigor, moisture levels, and chlorophyll concentration without needing to run a heavy neural network.
+
+### 1. Vegetation Health (NDVI)
+The following block calculates the **NDVI (Normalized Difference Vegetation Index)** for our test parcel. This index uses the Near-Infrared (NIR) and Red bands to assess biomass vigor and density. The results generate a heatmap where higher values indicate healthy vegetation.
+
+### 2. Moisture & Water Detection (NDWI)
+Next, we extract the **NDWI (Normalized Difference Water Index)** by cross-referencing the Green band with the NIR band. The goal of this step is to evaluate water stress and map the presence of surface water on the parcel. The areas highlighted in blue represent locations with the highest moisture index.
+
+### 3. Chlorophyll & Nutrition (GCI)
+In this step, we focus on crop nutrition through the **GCI (Green Chlorophyll Index)**. This index is directly correlated with the amount of chlorophyll in the leaves, allowing us to estimate nitrogen levels. Areas with higher values reflect plants in a strong vegetative growth phase.
+
+### 4. Integrated Dashboard
+To facilitate decision-making, the code compiles the results into an **integrated visual dashboard**. A true-color representation of the parcel (normalized RGB) is generated and placed in perspective alongside the maps of the three previously calculated agronomic indices.
+
+### 5. Automated Hotspot Bounding Boxes
+Finally, we introduce a layer of spatial automation. The algorithm analyzes each generated map, isolates the **top 5% of highest values** (greatest vigor, most water, and most chlorophyll), and automatically draws **red bounding boxes** around these critical zones to alert the end user.
+
+---
+
+## Installation & Setup
+
+### Prerequisites
+You will need Python installed along with the following geospatial and scientific libraries:
+
+```bash
+pip install rasterio numpy matplotlib scipy
