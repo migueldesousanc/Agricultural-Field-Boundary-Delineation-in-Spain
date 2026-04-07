@@ -15,8 +15,7 @@ Unlike standard instance segmentation models that map general field boundaries, 
 The following block calculates the **NDVI (Normalized Difference Vegetation Index)** for our test parcel. This index uses the Near-Infrared (NIR) and Red bands to assess biomass vigor and density. The results generate a heatmap where higher values indicate healthy vegetation.
 
 ### 2. Moisture & Water Detection (NDWI)
-Next, we extract the **NDWI (Normalized Difference Water Index)** by cross-referencing the <img width="923" height="598" alt="Captura de ecrã 2026-04-07 103953" src="https://github.com/user-attachments/assets/9c0132fc-8f5c-42f4-a174-ee7dbfb7fbc1" />
-Green band with the NIR band. The goal of this step is to evaluate water stress and map the presence of surface water on the parcel. The areas highlighted in blue represent locations with the highest moisture index.
+Next, we extract the **NDWI (Normalized Difference Water Index)** by cross-referencing the Green band with the NIR band. The goal of this step is to evaluate water stress and map the presence of surface water on the parcel. The areas highlighted in blue represent locations with the highest moisture index.
 
 ### 3. Chlorophyll & Nutrition (GCI)
 In this step, we focus on crop nutrition through the **GCI (Green Chlorophyll Index)**. This index is directly correlated with the amount of chlorophyll in the leaves, allowing us to estimate nitrogen levels. Areas with higher values reflect plants in a strong vegetative growth phase.
